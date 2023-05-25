@@ -30,6 +30,7 @@
         {
             records = new Label();
             Record = new GroupBox();
+            pictureBox1 = new PictureBox();
             button2 = new Button();
             button1 = new Button();
             totalRecord = new Label();
@@ -52,6 +53,7 @@
             delete = new Button();
             backMainMenu = new Button();
             Record.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // records
@@ -66,6 +68,7 @@
             // 
             // Record
             // 
+            Record.Controls.Add(pictureBox1);
             Record.Controls.Add(button2);
             Record.Controls.Add(button1);
             Record.Controls.Add(totalRecord);
@@ -91,6 +94,15 @@
             Record.TabIndex = 1;
             Record.TabStop = false;
             Record.Text = "Record";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(756, 137);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(361, 291);
+            pictureBox1.TabIndex = 19;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // button2
             // 
@@ -321,6 +333,7 @@
             Load += Form3_Load;
             Record.ResumeLayout(false);
             Record.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -350,5 +363,6 @@
         private Label id;
         private Button delete;
         private Button backMainMenu;
+        private PictureBox pictureBox1;
     }
 }

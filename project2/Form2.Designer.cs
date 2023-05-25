@@ -46,6 +46,10 @@
             label1 = new Label();
             today = new Label();
             bType = new ComboBox();
+            pictureBox1 = new PictureBox();
+            addphoto = new Button();
+            openFileDialog1 = new OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // addVolunteer
@@ -215,12 +219,37 @@
             bType.TabIndex = 18;
             bType.SelectedIndexChanged += bType_SelectedIndexChanged;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(581, 93);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(352, 299);
+            pictureBox1.TabIndex = 19;
+            pictureBox1.TabStop = false;
+            // 
+            // addphoto
+            // 
+            addphoto.Location = new Point(711, 420);
+            addphoto.Name = "addphoto";
+            addphoto.Size = new Size(141, 35);
+            addphoto.TabIndex = 20;
+            addphoto.Text = "add photo";
+            addphoto.UseVisualStyleBackColor = true;
+            addphoto.Click += button1_Click;
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            openFileDialog1.FileOk += openFileDialog1_FileOk;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Aquamarine;
             ClientSize = new Size(989, 559);
+            Controls.Add(addphoto);
+            Controls.Add(pictureBox1);
             Controls.Add(bType);
             Controls.Add(today);
             Controls.Add(label1);
@@ -242,6 +271,7 @@
             Name = "Form2";
             Text = "Form2";
             Load += Form2_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -266,5 +296,8 @@
         private Label label1;
         private Label today;
         private ComboBox bType;
+        private PictureBox pictureBox1;
+        private Button addphoto;
+        private OpenFileDialog openFileDialog1;
     }
 }

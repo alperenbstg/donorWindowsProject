@@ -59,7 +59,9 @@ namespace project2
                             phoneNumber = parts[4],
                             Email = parts[5],
                             bloodType = parts[6],
-                            DonationDate = parts[7]
+                            DonationDate = parts[7],
+                            photoPath = parts[8]
+
                         };
 
                         donors.Add(donor);
@@ -91,6 +93,7 @@ namespace project2
                 phoneText.Text = currentDonor.phoneNumber;
                 emailText.Text = currentDonor.Email;
                 dateText.Text = currentDonor.DonationDate;
+                pictureBox1.ImageLocation = currentDonor.photoPath;
 
 
             }
@@ -134,7 +137,12 @@ namespace project2
 
             string suAnKullanici = (currentIndex + 1).ToString();
             string totalKullanici = donors.Count.ToString();
-            totalRecord.Text = suAnKullanici+"--"+totalKullanici;
+            totalRecord.Text = suAnKullanici + "--" + totalKullanici;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

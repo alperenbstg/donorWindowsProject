@@ -17,3 +17,4 @@ C:\Users\alper\source\repos\project2\project2\obj\Debug\net6.0-windows\project2.
 C:\Users\alper\source\repos\project2\project2\obj\Debug\net6.0-windows\project2.genruntimeconfig.cache
 C:\Users\alper\source\repos\project2\project2\obj\Debug\net6.0-windows\ref\project2.dll
 C:\Users\alper\source\repos\project2\project2\obj\Debug\net6.0-windows\project2.Form3.resources
+C:\Users\alper\source\repos\project2\project2\obj\Debug\net6.0-windows\project2.Properties.Resources.resources

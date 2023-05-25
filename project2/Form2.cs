@@ -56,10 +56,10 @@ namespace project2
                 Surname = surnameTextBox.Text,
                 Email = emailTextBox.Text,
                 DonationDate = today.Text,
-                photoPath = string.Empty,
+                photoPath = pictureBox1.ImageLocation,
                 socialID = socialIdTextBox.Text,
                 phoneNumber = pNumberTextBox.Text,
-              //  bloodType = secilenEleman
+                bloodType = bType.SelectedText
             };
 
             donors.Add(donor);
@@ -74,7 +74,7 @@ namespace project2
 
                 foreach (Donor donor in donors)
                 {
-                    writer.WriteLine($"{donor.Id},{donor.Name},{donor.Surname},{donor.socialID},{donor.phoneNumber},{donor.Email},{donor.bloodType},{donor.DonationDate}");
+                    writer.WriteLine($"{donor.Id},{donor.Name},{donor.Surname},{donor.socialID},{donor.phoneNumber},{donor.Email},{donor.bloodType},{donor.DonationDate},{donor.photoPath}");
 
 
                 }
@@ -95,7 +95,19 @@ namespace project2
 
         private void bType_SelectedIndexChanged(object sender, EventArgs e)
         {
-             
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            openFileDialog1.ShowDialog();
+            pictureBox1.ImageLocation = openFileDialog1.FileName;
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }
