@@ -33,17 +33,6 @@ namespace project2
             today.Visible = true;
         }
 
-        private int generateUniqueId()
-        {
-            Random random = new Random();
-            int id = random.Next(10000, 99999);
-            while (donors.Any(x => x.Id == id))
-            {
-                id = random.Next(10000, 99999);
-
-            }
-            return id;
-        }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
@@ -59,7 +48,7 @@ namespace project2
                 photoPath = pictureBox1.ImageLocation,
                 socialID = socialIdTextBox.Text,
                 phoneNumber = pNumberTextBox.Text,
-                bloodType = bType.SelectedText
+                bloodType = bType.SelectedItem.ToString()
             };
 
             donors.Add(donor);
@@ -109,5 +98,29 @@ namespace project2
         {
 
         }
+
+        private int generateUniqueId()
+        {
+            Random random = new Random();
+            int id = random.Next(10000, 99999);
+            while (IsIdAlreadyUsed(id))
+            {
+                id = random.Next(10000, 99999);
+            }
+            return id;
+        }
+
+        private bool IsIdAlreadyUsed(int id)
+        {
+            foreach (Donor donor in donors)
+            {
+                if (donor.Id == id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }

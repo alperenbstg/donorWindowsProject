@@ -91,6 +91,7 @@ namespace project2
                 emailText.Text = currentDonor.Email;
                 dateText.Text = currentDonor.DonationDate;
                 pictureBox1.ImageLocation = currentDonor.photoPath;
+                bTypeText.Text = currentDonor.bloodType;
 
 
             }
@@ -141,7 +142,7 @@ namespace project2
             if (donors.Count > 0)
             {
                 donors.RemoveAt(currentIndex);
-                SaveDonorsToFile();
+                saveDonorsToFile();
                 numberOfTotalandCurrentDonors();
 
 
@@ -167,7 +168,7 @@ namespace project2
 
             }
         }
-        private void SaveDonorsToFile()
+        private void saveDonorsToFile()
         {
             using (StreamWriter writer = new StreamWriter(filePath))
             {
