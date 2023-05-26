@@ -23,10 +23,7 @@ namespace project2
             InitializeComponent();
             loadDonorsFromFile();
             displayDonorInformation();
-
-            string suAnKullanici = (currentIndex + 1).ToString();
-            string totalKullanici = donors.Count.ToString();
-            totalRecord.Text = suAnKullanici + "--" + totalKullanici;
+            numberOfTotalandCurrentDonors();
 
 
 
@@ -113,9 +110,7 @@ namespace project2
                 currentIndex++;
                 displayDonorInformation();
 
-                string suAnKullanici = (currentIndex + 1).ToString();
-                string totalKullanici = donors.Count.ToString();
-                totalRecord.Text = suAnKullanici + "--" + totalKullanici;
+                numberOfTotalandCurrentDonors();
             }
         }
 
@@ -126,13 +121,70 @@ namespace project2
                 currentIndex--;
                 displayDonorInformation();
 
-                string suAnKullanici = (currentIndex + 1).ToString();
-                string totalKullanici = donors.Count.ToString();
-                totalRecord.Text = suAnKullanici + "--" + totalKullanici;
+                numberOfTotalandCurrentDonors();
             }
         }
 
         private void totalRecord_Click(object sender, EventArgs e)
+        {
+
+            numberOfTotalandCurrentDonors();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            if (donors.Count > 0)
+            {
+                donors.RemoveAt(currentIndex);
+                SaveDonorsToFile();
+                numberOfTotalandCurrentDonors();
+
+
+                if (donors.Count == 0)
+                {
+
+                    currentIndex = 0;
+
+
+                }
+
+                else if (currentIndex >= donors.Count)
+                {
+
+                    currentIndex = donors.Count - 1;
+                    displayDonorInformation();
+
+
+
+                }
+
+                else { displayDonorInformation(); }
+
+            }
+        }
+        private void SaveDonorsToFile()
+        {
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+
+                foreach (Donor donor in donors)
+                {
+                    writer.WriteLine($"{donor.Id},{donor.Name},{donor.Surname},{donor.socialID},{donor.phoneNumber},{donor.Email},{donor.bloodType},{donor.DonationDate},{donor.photoPath}");
+
+
+                }
+
+
+            }
+        }
+
+
+        private void numberOfTotalandCurrentDonors()
         {
 
             string suAnKullanici = (currentIndex + 1).ToString();
@@ -140,9 +192,5 @@ namespace project2
             totalRecord.Text = suAnKullanici + "--" + totalKullanici;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

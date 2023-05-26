@@ -306,6 +306,7 @@
             delete.TabIndex = 19;
             delete.Text = "Delete";
             delete.UseVisualStyleBackColor = true;
+            delete.Click += delete_Click;
             // 
             // backMainMenu
             // 
